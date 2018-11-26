@@ -5,3 +5,5 @@ authors = ["user"]
 
 [dependencies]
 nanomsg = "0.7"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
