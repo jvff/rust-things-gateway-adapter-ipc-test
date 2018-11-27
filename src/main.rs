@@ -122,7 +122,7 @@ fn main() {
             .expect("Failed to read from socket");
 
         let request: PluginRegistrationRequest =
-            serde_json::from_str(&message).expect("Failed to deserialize response");
+            serde_json::from_str(&message).expect("Failed to deserialize request");
         let PluginRegistrationRequest::RegisterPlugin { plugin_id } = request;
         let ipc_base_addr = format!("gateway.plugin.{}", plugin_id);
         let plugin_socket_address = format!("ipc:///tmp/{}", ipc_base_addr);
