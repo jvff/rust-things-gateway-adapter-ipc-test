@@ -44,7 +44,7 @@ pub struct Property {
     maximum: Option<f64>,
     minimum: Option<f64>,
     #[serde(rename = "enum")]
-    enum_values: Option<Vec<String>>,
+    enum_values: Option<Vec<serde_json::Value>>,
     read_only: Option<bool>,
     multiple_of: Option<String>,
 }
