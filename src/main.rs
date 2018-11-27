@@ -110,6 +110,8 @@ fn main() {
             .read_to_string(&mut message)
             .expect("Failed to read from socket");
 
+        println!("Got message: {:?}", message);
+
         let request: PluginRegistrationRequest =
             serde_json::from_str(&message).expect("Failed to deserialize request");
         let PluginRegistrationRequest::RegisterPlugin { plugin_id } = request;
