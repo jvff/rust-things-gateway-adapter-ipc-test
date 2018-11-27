@@ -60,9 +60,9 @@ pub struct Action {
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Event {
-    name: String,
-    data: Option<serde_json::Value>,
-    timestamp: u64,
+    description: String,
+    #[serde(rename = "type")]
+    type_name: Option<serde_json::Value>,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
