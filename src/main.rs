@@ -13,6 +13,7 @@ use nanomsg::{Protocol, Socket};
 #[serde(rename_all = "camelCase")]
 #[serde(tag = "messageType", content = "data")]
 pub enum PluginRegistrationRequest {
+    #[serde(rename_all = "camelCase")]
     RegisterPlugin { plugin_id: String },
 }
 
@@ -20,6 +21,7 @@ pub enum PluginRegistrationRequest {
 #[serde(rename_all = "camelCase")]
 #[serde(tag = "messageType", content = "data")]
 pub enum PluginRegistrationReply {
+    #[serde(rename_all = "camelCase")]
     RegisterPluginReply {
         plugin_id: String,
         ipc_base_addr: String,
