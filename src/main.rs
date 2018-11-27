@@ -70,7 +70,7 @@ pub struct Device {
     id: String,
     name: String,
     #[serde(rename = "type")]
-    type_name: String,
+    type_name: Option<String>,
     description: String,
     properties: HashMap<String, Property>,
     actions: HashMap<String, Action>,
