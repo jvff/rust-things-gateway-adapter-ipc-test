@@ -51,21 +51,10 @@ pub struct Property {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub enum ActionStatus {
-    Created,
-    Pending,
-    Completed,
-}
-
-#[derive(Clone, Debug, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
 pub struct Action {
-    id: String,
-    name: String,
-    input: HashMap<String, serde_json::Value>,
-    status: ActionStatus,
-    time_requested: u64,
-    time_completed: Option<u64>,
+    label: String,
+    description: String,
+    input: Option<serde_json::Value>,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
