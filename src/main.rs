@@ -4,7 +4,7 @@ extern crate serde;
 extern crate serde_json;
 
 use std::collections::HashSet;
-use std::io::Read;
+use std::io::{Read, Write};
 use std::thread;
 
 use nanomsg::{Protocol, Socket};
@@ -56,7 +56,8 @@ fn main() {
             ipc_base_addr,
         };
 
-        serde_json::to_writer(&mut socket, &reply).expect("Failed to send reply");
+        let reply_message = serde_json::to_string(&reply).expect("Failed to send reply");
+        socket.write_all(reply_message.as_bytes());
 
         message.clear();
     }
